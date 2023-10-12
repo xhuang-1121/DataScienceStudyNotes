@@ -52,12 +52,6 @@ def statistics_switch_chart(value):
             title_font_family="Times New Roman, SimSun"
         )
 
-        fig.update_layout(
-            margin=dict(t=50, b=10)
-        )
-
-        return fig
-
     else:
 
         fig = px.bar(statistics_data, y='地区', x='七普总人口',
@@ -65,8 +59,9 @@ def statistics_switch_chart(value):
                      color_continuous_scale='Reds',
                      orientation='h')
 
-        fig.update_layout(
-            margin=dict(t=50, b=10)
-        )
 
-        return fig
+    fig.update_layout(
+        margin=dict(t=50, b=10)
+    )
+
+    return fig

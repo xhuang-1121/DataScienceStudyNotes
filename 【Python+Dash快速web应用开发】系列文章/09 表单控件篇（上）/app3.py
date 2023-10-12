@@ -49,20 +49,14 @@ app.layout = html.Div(
     Input('dropdown-input-1', 'value')
 )
 def dropdown_output_1(value):
-    if value:
-        return json.dumps(value, indent=4)
-
-    return dash.no_update
+    return json.dumps(value, indent=4) if value else dash.no_update
 
 @app.callback(
     Output('dropdown-output-2', 'children'),
     Input('dropdown-input-2', 'value')
 )
 def dropdown_output_2(value):
-    if value:
-        return json.dumps(value, indent=4)
-
-    return dash.no_update
+    return json.dumps(value, indent=4) if value else dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)

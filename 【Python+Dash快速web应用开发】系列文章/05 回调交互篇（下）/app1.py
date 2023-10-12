@@ -44,23 +44,23 @@ app.layout = html.Div(
 def record_click_event(n_clicks):
     if n_clicks == 1:
         return (
-            '第1次点击：{}'.format(time.strftime('%H:%M:%S', time.localtime(time.time()))),
+            f"第1次点击：{time.strftime('%H:%M:%S', time.localtime(time.time()))}",
             dash.no_update,
-            dash.no_update
+            dash.no_update,
         )
 
     elif n_clicks == 2:
         return (
             dash.no_update,
-            '第2次点击：{}'.format(time.strftime('%H:%M:%S', time.localtime(time.time()))),
-            dash.no_update
+            f"第2次点击：{time.strftime('%H:%M:%S', time.localtime(time.time()))}",
+            dash.no_update,
         )
 
     elif n_clicks >= 3:
         return (
             dash.no_update,
             dash.no_update,
-            '第3次及以上点击：{}'.format(time.strftime('%H:%M:%S', time.localtime(time.time()))),
+            f"第3次及以上点击：{time.strftime('%H:%M:%S', time.localtime(time.time()))}",
         )
 
 

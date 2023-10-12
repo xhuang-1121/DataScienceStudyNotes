@@ -33,12 +33,13 @@ class OsmDownloader:
 
         raw_osm_json = eval(source.text)
 
-        # 抽取点图层并保存
-        points_contents = []
-        for element in tqdm(raw_osm_json['elements'], desc=f'[{self.area}]抽取点数据'):
-            if element['type'] == 'node':
-                points_contents.append((str(element['id']), element['lon'], element['lat']))
-
+        points_contents = [
+            (str(element['id']), element['lon'], element['lat'])
+            for element in tqdm(
+                raw_osm_json['elements'], desc=f'[{self.area}]抽取点数据'
+            )
+            if element['type'] == 'node'
+        ]
         self.points = pd.DataFrame(points_contents,
                               columns=['id', 'lng', 'lat'])
 
@@ -47,8 +48,7 @@ class OsmDownloader:
         self.points = gpd.GeoDataFrame(self.points, crs='EPSG:4326')
 
         # 构造{id -> 点数据}字典
-        self.id2points = {key: value for key, value in zip(self.points['id'],
-                                                           self.points['geometry'])}
+        self.id2points = dict(zip(self.points['id'], self.points['geometry']))
 
         # 保存线图层
         ways_contents = []

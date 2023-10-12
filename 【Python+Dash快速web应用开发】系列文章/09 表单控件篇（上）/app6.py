@@ -134,7 +134,7 @@ def fetch_info(n_clicks, gender, programming_language, frequency, interests, tel
     if all([gender, programming_language, frequency, interests, tel]):
 
         # 简单以写出到本地指定json文件为例来演示写出过程
-        with open(tel+'.json', 'w') as j:
+        with open(f'{tel}.json', 'w') as j:
             json.dump(
                 {
                     'gender': gender,

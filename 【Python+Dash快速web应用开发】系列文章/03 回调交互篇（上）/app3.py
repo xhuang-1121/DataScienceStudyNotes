@@ -42,7 +42,7 @@ app.layout = html.Div(
 def input_to_output(lastname, firstname):
 
     try:
-        return '完整姓名：' + lastname + firstname, f'姓名长度为{len(lastname+firstname)}'
+        return f'完整姓名：{lastname}{firstname}', f'姓名长度为{len(lastname + firstname)}'
     except:
         return '等待输入...', '等待输入...'
 

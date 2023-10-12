@@ -85,10 +85,7 @@ app.layout = dbc.Container(
     Input('interval', 'n_intervals')
 )
 def update_header(n_intervals):
-    if n_intervals:
-        return f'2021年第{n_intervals}周使用量统计：'
-
-    return dash.no_update
+    return f'2021年第{n_intervals}周使用量统计：' if n_intervals else dash.no_update
 
 
 @app.callback(
