@@ -33,10 +33,7 @@ app.layout = html.Div(
 )
 def check_list_output(value):
 
-    if value:
-        return '已选择：'+'、'.join(value)
-
-    return dash.no_update
+    return '已选择：'+'、'.join(value) if value else dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)

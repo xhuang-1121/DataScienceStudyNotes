@@ -20,10 +20,10 @@ def query_hero_info(hero_id):
     根据英雄id获取指定英雄的资料数据
     '''
 
-    hero_info = requests.get('https://game.gtimg.cn/images/lol/act/img/js/hero/%s.js' % hero_id,
-                             headers=headers).json()
-
-    return hero_info
+    return requests.get(
+        f'https://game.gtimg.cn/images/lol/act/img/js/hero/{hero_id}.js',
+        headers=headers,
+    ).json()
 
 # 这里用external_scripts导入最后的轮播图所需的js依赖
 app = dash.Dash(

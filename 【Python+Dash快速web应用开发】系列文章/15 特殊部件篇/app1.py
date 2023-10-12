@@ -49,10 +49,7 @@ app.layout = dbc.Container(
     Input('input-memory1', 'value')
 )
 def data_in_memory_save_data(value):
-    if value:
-        return value
-
-    return dash.no_update
+    return value if value else dash.no_update
 
 
 @app.callback(
@@ -60,10 +57,7 @@ def data_in_memory_save_data(value):
     Input('data-in-memory', 'data')
 )
 def data_in_memory_placeholder(data):
-    if data:
-        return data
-
-    return dash.no_update
+    return data if data else dash.no_update
 
 
 # session对应回调
@@ -72,10 +66,7 @@ def data_in_memory_placeholder(data):
     Input('input-session1', 'value')
 )
 def data_in_session_save_data(value):
-    if value:
-        return value
-
-    return dash.no_update
+    return value if value else dash.no_update
 
 
 @app.callback(
@@ -83,10 +74,7 @@ def data_in_session_save_data(value):
     Input('data-in-session', 'data')
 )
 def data_in_session_placeholder(data):
-    if data:
-        return data
-
-    return dash.no_update
+    return data if data else dash.no_update
 
 
 # local对应回调
@@ -95,10 +83,7 @@ def data_in_session_placeholder(data):
     Input('input-local1', 'value')
 )
 def data_in_local_save_data(value):
-    if value:
-        return value
-
-    return dash.no_update
+    return value if value else dash.no_update
 
 
 @app.callback(
@@ -106,10 +91,7 @@ def data_in_local_save_data(value):
     Input('data-in-local', 'data')
 )
 def data_in_local_placeholder(data):
-    if data:
-        return data
-
-    return dash.no_update
+    return data if data else dash.no_update
 
 
 if __name__ == '__main__':

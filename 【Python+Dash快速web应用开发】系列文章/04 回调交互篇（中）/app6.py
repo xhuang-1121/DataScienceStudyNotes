@@ -134,12 +134,12 @@ def make_line_graph(loan_amount,
         month_repay = [round(d + (loan_amount - d * (month - 1)) * month_interest_rate, 3)
                        for month in range(1, repay_month_amount + 1)]
 
-    fig = px.line(x=[f'第{i}月' for i in range(1, repay_month_amount + 1)],
-                  y=month_repay,
-                  title='每月还款金额变化曲线（总支出：{}元）'.format(round(sum(month_repay), 2)),
-                  template='plotly_white')
-
-    return fig
+    return px.line(
+        x=[f'第{i}月' for i in range(1, repay_month_amount + 1)],
+        y=month_repay,
+        title=f'每月还款金额变化曲线（总支出：{round(sum(month_repay), 2)}元）',
+        template='plotly_white',
+    )
 
 @app.callback(
     Output('repay_timeline', 'figure'),

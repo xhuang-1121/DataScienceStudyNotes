@@ -8,7 +8,7 @@ def job(n):
 if __name__ == '__main__':
 
     result = []
-    for idx in range(10):
+    for _ in range(10):
         with Pool(5) as p:
             result.append(p.map(job, [i**10 for i in range(1, 6)]))
             pprint(result.__len__())

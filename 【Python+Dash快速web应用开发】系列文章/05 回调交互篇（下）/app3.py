@@ -63,10 +63,7 @@ def add_query_item(n_clicks, children):
 )
 def refresh_code_output(value):
 
-    if value:
-        return region2code[value]
-    else:
-        return dash.no_update
+    return region2code[value] if value else dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)

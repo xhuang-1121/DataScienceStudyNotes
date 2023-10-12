@@ -56,7 +56,7 @@ def callback1(value):
     prevent_initial_call=True
 )
 def callback2(options):
-    return '生成的Dropdown部件共有{}个选项'.format(options.__len__())
+    return f'生成的Dropdown部件共有{options.__len__()}个选项'
 
 
 if __name__ == "__main__":

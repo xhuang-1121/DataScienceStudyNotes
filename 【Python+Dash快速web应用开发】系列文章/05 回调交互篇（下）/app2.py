@@ -70,13 +70,15 @@ def update_account_records(n_clicks, children, account_amount, account_type):
     用于处理每一次的记账输入并渲染前端记录
     '''
     if account_amount and account_type:
-        children.append(dbc.Row(
-            dbc.Col(
-                '【{}】类开销【{}】元'.format(account_type, account_amount)
-            ),
-            # 以字典形式定义id
-            id={'type': 'single-account_record', 'index': children.__len__()}
-        ))
+        children.append(
+            dbc.Row(
+                dbc.Col(f'【{account_type}】类开销【{account_amount}】元'),
+                id={
+                    'type': 'single-account_record',
+                    'index': children.__len__(),
+                },
+            )
+        )
 
         return children
 
@@ -91,9 +93,12 @@ def refresh_account_sum(children):
     '''
     对多部件集合single-account_record下所有账目记录进行求和
     '''
-    return '账本总开销：{}'.format(sum([int(re.findall('\d+',
-                                                 child['props']['children'])[0])
-                                  for child in children])), json.dumps(children, indent=2)
+    return '账本总开销：{}'.format(
+        sum(
+            int(re.findall('\d+', child['props']['children'])[0])
+            for child in children
+        )
+    ), json.dumps(children, indent=2)
 
 if __name__ == '__main__':
     app.run_server(debug=True)

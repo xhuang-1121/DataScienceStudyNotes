@@ -25,10 +25,7 @@ app.layout = html.Div(
     State('uploader', 'fileNames')
 )
 def show_upload_status(isCompleted, fileNames):
-    if isCompleted:
-        return '已完成上传：'+fileNames[0]
-
-    return dash.no_update
+    return f'已完成上传：{fileNames[0]}' if isCompleted else dash.no_update
 
 
 if __name__ == '__main__':

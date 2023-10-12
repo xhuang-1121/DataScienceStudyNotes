@@ -34,10 +34,7 @@ app.layout = html.Div(
 )
 def radio_items_output(value):
 
-    if value:
-        return '已选择：'+value
-
-    return dash.no_update
+    return f'已选择：{value}' if value else dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)

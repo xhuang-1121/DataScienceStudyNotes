@@ -46,11 +46,7 @@ def output_text(value):
 )
 def output_password(value, n_submit):
 
-    if value:
-
-        return '密码为：'+value+'  '+f'第{n_submit}次按下Enter'
-
-    return dash.no_update
+    return f'密码为：{value}  ' + f'第{n_submit}次按下Enter' if value else dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)
